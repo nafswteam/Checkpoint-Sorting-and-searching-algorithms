@@ -1,0 +1,42 @@
+ALGORITHM Insertion_Sort
+//declare variables
+VAR
+    arr : ARRAY_OF INTEGER[n];
+    loc : INTEGER;
+    temp : INTEGER;
+
+BEGIN
+
+    Read(arr[n]);
+
+    // loop to get element to be sorted   
+    FOR i FROM 1 TO arr.length-1 STEP 1  DO
+        //save element in temp
+        temp = arr[i] 
+
+
+        //compare element with previous elements to get right location to insert element
+
+        // by default the last location is selected - this remains if all elements to its left are less than it
+        loc = i
+
+
+        FOR a FROM 0 TO i-1 STEP 1  DO
+            IF (arr[a] > temp ) THEN
+
+                loc = a; 
+            
+        //right shift elements from arr[a] to location
+        FOR b FROM arr[i-1] TO arr[loc] STEP -1  DO
+            arr[b+1] = arr[b]
+        END_FOR
+
+        // insert current element in right position
+
+        arr[loc] = temp
+
+            
+        END_FOR     
+
+    END_FOR
+END
